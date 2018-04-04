@@ -8,18 +8,35 @@ CLIENT_FOLDER = os.path.abspath('../client/build')
 def welcome():
     return render_template('welcome.html')
 
+# hard code some sequence
+sequence = [
+            ['C#', 'D#', 'Gb', 'Ab', 'Bb'],
+            ['G', 'A', 'G', 'F', 'E', 'F', 'G'],
+            ['D', 'E', 'F', 'E', 'F', 'G']
+           ]
+part = 0
+currentNote = 0
+
 @app.route('/note', methods=['GET', 'POST'])
 def note():
     result = None
+    
+    global currentNote
+    global part
 
     if request.method == 'POST':
         notes = request.get_json()
-        if 'C#' in notes:
+        if sequence[part][currentNote] in notes:
             result = True
+            
+            #loopback sequence and note if all exhausted
+            currentNote = (currentNote + 1) % len(sequence[part])
+            if currentNote == 0:
+                part = (part + 1) % len(sequence)
         else:
             result = False
     else:
-        result = {'note': 'C#'}
+        result = {'note': sequence[part][currentNote]}
     
     return jsonify(result)
 

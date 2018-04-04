@@ -30,6 +30,26 @@
   font-size: large;
 }
 
+.App-summary {
+  position: relative;
+  top: 20px;
+  font-size: large;
+}
+
+.App-info {
+  position: relative;
+  top: 20px;
+  left: 30px;
+  text-align: left;
+}
+
+.App-note-correct {
+  color: green;
+}
+
+.App-note-incorrect {
+  color: red;
+}
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
