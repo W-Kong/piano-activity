@@ -10,12 +10,14 @@ def welcome():
 
 # hard code some sequence
 sequence = [
-            ['C#', 'D#', 'Gb', 'Ab', 'Bb'],
             ['G', 'A', 'G', 'F', 'E', 'F', 'G'],
-            ['D', 'E', 'F', 'E', 'F', 'G']
+            ['D', 'E', 'F', 'E', 'F', 'G'],
+            ['G', 'A', 'G', 'F', 'E', 'F', 'G'],
+            ['D', 'G', 'E', 'C']
            ]
 part = 0
 currentNote = 0
+end = False
 
 @app.route('/note', methods=['GET', 'POST'])
 def note():
@@ -23,6 +25,7 @@ def note():
     
     global currentNote
     global part
+    global end
 
     if request.method == 'POST':
         notes = request.get_json()
@@ -33,10 +36,15 @@ def note():
             currentNote = (currentNote + 1) % len(sequence[part])
             if currentNote == 0:
                 part = (part + 1) % len(sequence)
+                if part == 0:
+                    end = True
         else:
             result = False
     else:
-        result = {'note': sequence[part][currentNote]}
+        if not end:
+           result = {'note': sequence[part][currentNote]}
+        else :
+           result = {'note': 'Fine'}
     
     return jsonify(result)
 

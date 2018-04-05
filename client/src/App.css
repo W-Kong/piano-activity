@@ -50,6 +50,15 @@
 .App-note-incorrect {
   color: red;
 }
+
+.App-list {
+  width: 300px;
+  -webkit-columns: 20px 2;
+  -moz-columns: 20px 2;
+  columns: 20px 2;
+  list-style: none;
+}
+
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
