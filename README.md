@@ -16,14 +16,6 @@ The project has two parts:
 * Navigate to the `server` folder, run `python run_server.py`
 * Open http://localhost:5000/ to access the activity
 
-## Task
-
-This is a small starter project which we hope will become a fully-fledged activity. Your task is to add new functionality to this project to produce a working end product.
-
-# New Functionality to Implement
-
-The server and client need to be finished off such that:
-
 ## Server
 * notes are served in a sequence (at the moment the same note is served over and over again - perhaps this could make a tune?)
 * keys pressed by the user are checked on the server, against the current note in the sequence
@@ -37,16 +29,12 @@ The server and client need to be finished off such that:
 
 ### Extension Ideas:
 
-Demonstrate what you can do by adding your own functionality, e.g.
 * storage of data in a data store (e.g. sqlite)
 * support for multiple users: logging into a user session and storing where each user is up to in the activity
 * improvement of look and feel, e.g. show off some CSS artisanry (or add other packages such as SCSS), or add audio when pressing the keys
 * add unit tests that provide good testing coverage
 * add a Redux store to the project such that state is no longer stored within App.js
 * user results are reported on a separate page which can also be navigated to as a single page app (SPA)
-* additional functionality of your choosing which adds educational value to the activity (be creative!)
+* additional functionality of your choosing which adds educational value to the activity 
 * add a way for users to share their results, or upload their own sequences/tunes to teach each other
-
-# Next Steps
-Implement as much as you reasonably can, and document any ideas that you don't have the time to build - we may have the opportunity to try and implement some of them together.
 
